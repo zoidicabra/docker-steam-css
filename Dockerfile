@@ -37,12 +37,13 @@ COPY --chown=steam:steam mods/ /temp
 RUN cd /home/steam/css/cstrike && \
     tar zxvf /temp/mmsource-1.10.6-linux.tar.gz && \
     tar zxvf /temp/sourcemod-1.7.3-git5275-linux.tar.gz && \
-    unzip /temp/quake_sounds1.8.zip && \
     unzip /temp/mapchooser_extended_1.10.2.zip && \
+    unzip /temp/rankme.zip && \
+    unzip /temp/autoswapteam2.2.1.zip && \
     mv /temp/gem_damage_report.smx addons/sourcemod/plugins && \
     rm /temp/*
 
 # Add default configuration files
-ADD cfg/ /home/steam/css/cstrike/cfg
+COPY cfg/ /home/steam/css/cstrike/cfg
 
 CMD ./entrypoint.sh

@@ -39,11 +39,14 @@ RUN cd /home/steam/css/cstrike && \
     tar zxvf /temp/sourcemod-1.7.3-git5275-linux.tar.gz && \
     unzip /temp/mapchooser_extended_1.10.2.zip && \
     unzip /temp/rankme.zip && \
-    unzip /temp/autoswapteam2.2.1.zip && \
+    unzip /temp/autoswapteam.zip && \
     mv /temp/gem_damage_report.smx addons/sourcemod/plugins && \
     rm /temp/*
 
 # Add default configuration files
 COPY cfg/ /home/steam/css/cstrike/cfg
+
+# Add mods configuration files
+COPY cfg/sourcemod/ /home/steam/css/cstrike/cfg/sourcemod
 
 CMD ./entrypoint.sh

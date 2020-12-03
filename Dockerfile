@@ -40,6 +40,7 @@ RUN cd /home/steam/css/cstrike && \
     unzip /temp/mapchooser_extended_1.10.2.zip && \
     unzip /temp/rankme.zip && \
     unzip /temp/autoswapteam.zip && \
+    mv /temp/c4drop.smx addons/sourcemod/plugins && \
     mv /temp/gem_damage_report.smx addons/sourcemod/plugins && \
     rm /temp/*
 

@@ -13,11 +13,12 @@ RUN wget -O /tmp/steamcmd_linux.tar.gz http://media.steampowered.com/installer/s
     rm /tmp/steamcmd_linux.tar.gz
 
 # Install CSS once to speed up container startup
-RUN ./steamcmd.sh +login anonymous +force_install_dir ./css +app_update 232330 validate +quit # Update to date as of 2016-02-06
+RUN ./steamcmd.sh +login anonymous +force_install_dir ./css +app_update 232330 validate +quit
 
-ENV CSS_HOSTNAME Counter-Strike Source Dedicated Server
-ENV CSS_PASSWORD ""
-ENV RCON_PASSWORD mysup3rs3cr3tpassw0rd
+ENV CSS_HOSTNAME  "" 
+ENV CSS_PASSWORD  ""
+ENV RCON_PASSWORD "" 
+ENV STEAM_TOKEN   ""
 
 EXPOSE 27015/udp
 EXPOSE 27015
@@ -37,17 +38,13 @@ COPY --chown=steam:steam mods/ /temp
 RUN cd /home/steam/css/cstrike && \
     tar zxvf /temp/mmsource-1.10.6-linux.tar.gz && \
     tar zxvf /temp/sourcemod-1.7.3-git5275-linux.tar.gz && \
-    unzip /temp/mapchooser_extended_1.10.2.zip && \
     unzip /temp/rankme.zip && \
-    unzip /temp/autoswapteam.zip && \
     mv /temp/c4drop.smx addons/sourcemod/plugins && \
-    mv /temp/gem_damage_report.smx addons/sourcemod/plugins && \
+    mv /temp/mixmod.smx addons/sourcemod/plugins && \
     rm /temp/*
 
 # Add default configuration files
 COPY cfg/ /home/steam/css/cstrike/cfg
-
-# Add mods configuration files
-COPY cfg/sourcemod/ /home/steam/css/cstrike/cfg/sourcemod
+COPY cfg/mapcycle.txt /home/steam/css/cstrike/mapcycle.txt
 
 CMD ./entrypoint.sh

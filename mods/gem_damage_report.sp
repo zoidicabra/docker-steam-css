@@ -86,7 +86,7 @@ new String:g_filenameSettings[MAX_FILE_LEN];
 new Handle:KVSettings = INVALID_HANDLE;
 
 new g_defaultPropOnOff = DrON;
-new g_defaultPropChatPop = DrPop;
+new g_defaultPropChatPop = DrChat;
 new g_defaultPropShortLong = DrLong;
 
 new bool:g_lateLoaded;
@@ -110,15 +110,15 @@ new String:g_HitboxName[MAXHITGROUPS+1][20];
 new g_MenuCleared[MAXPLAYERS+1];
 
 
-public bool:AskPluginLoad(Handle:myself, bool:late, String:error[], err_max)
+public APLRes:AskPluginLoad2(Handle:myself, bool:late, String:error[], err_max)
 {
   g_lateLoaded = late;
-  return true;
+  return APLRes_Success;
 }
 
 // Hook events on plugin start
 public OnPluginStart(){
-  g_versionConVar = CreateConVar("sm_damage_report_version", PLUGIN_VERSION, "Damage report version", FCVAR_PLUGIN|FCVAR_SPONLY|FCVAR_REPLICATED|FCVAR_NOTIFY);
+  g_versionConVar = CreateConVar("sm_damage_report_version", PLUGIN_VERSION, "Damage report version", FCVAR_SPONLY|FCVAR_REPLICATED|FCVAR_NOTIFY);
   SetConVarString(g_versionConVar, PLUGIN_VERSION);
   HookEvent("player_death", Event_PlayerDeath);
   HookEvent("player_hurt", Event_PlayerHurt);
@@ -571,7 +571,7 @@ public OnClientPostAdminCheck(client) {
 
 FindSettingsForClient(client) {
   new String:steamId[20];
-  GetClientAuthString(client, steamId, 20);
+  GetClientAuthId(client, AuthId_Engine, steamId, 20);
   
   KvRewind(KVSettings);
   if(KvJumpToKey(KVSettings, steamId))
@@ -589,7 +589,7 @@ FindSettingsForClient(client) {
 
 StoreSettingsForClient(client) {
   new String:steamId[40];
-  GetClientAuthString(client, steamId, 20);
+  GetClientAuthId(client, AuthId_Engine, steamId, 20);
  
   if(StrContains(steamId, "steam", false) != -1) {
       

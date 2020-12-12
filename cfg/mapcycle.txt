@@ -7,7 +7,5 @@ de_train
 de_nuke
 cs_office
 cs_italy
-cs_havana
 cs_assault
-cs_militia
 

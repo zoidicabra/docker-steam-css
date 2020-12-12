@@ -1,6 +1,7 @@
 RCON_PASSWORD="defaultpassword"
-CSS_HOSTNAME="[N.V.D] MIX SERVER 2020"
+CSS_HOSTNAME='"[N.V.D] MIX SERVER 2020"'
 CSS_PASSWORD=""
+STEAM_TOKEN=""
 
 build:
 	docker build -t zoidicabra/steam-css .
@@ -24,5 +25,6 @@ run:
 				  -e RCON_PASSWORD=$(RCON_PASSWORD) \
 				  -e CSS_HOSTNAME=$(CSS_HOSTNAME) \
 				  -e CSS_PASSWORD=$(CSS_PASSWORD) \
+				  -e STEAM_TOKEN=$(STEAM_TOKEN) \
 	              --name css-server \
 	              zoidicabra/steam-css

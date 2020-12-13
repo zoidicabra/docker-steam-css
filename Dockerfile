@@ -43,6 +43,9 @@ RUN cd /home/steam/css/cstrike && \
     mv /temp/mixmod.smx addons/sourcemod/plugins && \
     rm /temp/*
 
+COPY --chown=steam:steam maps/ /temp
+RUN mv /temp/* /home/steam/css/cstrike/maps/
+
 # Add default configuration files
 COPY cfg/ /home/steam/css/cstrike/cfg
 COPY cfg/mapcycle.txt /home/steam/css/cstrike/mapcycle.txt

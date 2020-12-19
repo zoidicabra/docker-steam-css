@@ -38,7 +38,8 @@ COPY --chown=steam:steam mods/ /temp
 RUN cd /home/steam/css/cstrike && \
     tar zxvf /temp/mmsource-1.10.6-linux.tar.gz && \
     tar zxvf /temp/sourcemod-1.7.3-git5275-linux.tar.gz && \
-    unzip /temp/rankme.zip && \
+    unzip /temp/rankme.zip && \ 
+    unzip /temp/bot2player.zip && \
     mv /temp/c4drop.smx addons/sourcemod/plugins && \
     mv /temp/mixmod.smx addons/sourcemod/plugins && \
     rm /temp/*

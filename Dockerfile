@@ -40,8 +40,11 @@ RUN cd /home/steam/css/cstrike && \
     tar zxvf /temp/sourcemod-1.7.3-git5275-linux.tar.gz && \
     unzip /temp/rankme.zip && \ 
     unzip /temp/bot2player.zip && \
-    mv /temp/c4drop.smx addons/sourcemod/plugins && \
+    unzip /temp/save_scores.zip && \
+    unzip /temp/enemies_left.zip && \
+    unzip /temp/dropbomb1.1.zip && \
     mv /temp/mixmod.smx addons/sourcemod/plugins && \
+    mv /temp/playerstacker.smx addons/sourcemod/plugins && \
     rm /temp/*
 
 COPY --chown=steam:steam maps/ /temp

@@ -45,6 +45,10 @@ RUN cd /home/steam/css/cstrike && \
     unzip /temp/dropbomb1.1.zip && \
     mv /temp/mixmod.smx addons/sourcemod/plugins && \
     mv /temp/playerstacker.smx addons/sourcemod/plugins && \
+    mv /temp/voicecomm.smx addons/sourcemod/plugins && \
+    mv /temp/forceroundend.smx addons/sourcemod/plugins && \
+    mv /temp/Cash.smx addons/sourcemod/plugins && \
+    mv /temp/c4drop.smx addons/sourcemod/plugins && \
     rm /temp/*
 
 COPY --chown=steam:steam maps/ /temp

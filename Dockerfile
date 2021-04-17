@@ -52,8 +52,8 @@ RUN mv /temp/* /home/steam/css/cstrike/maps/
 
 # Add default configuration files
 COPY cfg/ /home/steam/css/cstrike/cfg
-COPY cfg/sourcemod/mods.cfg /home/steam/css/cstrike/cfg/sourcemod/mods.cfg
-COPY cfg/mapcycle.txt /home/steam/css/cstrike/mapcycle.txt
-COPY cfg/motd.txt /home/steam/css/cstrike/motd.txt
+#COPY cfg/sourcemod/mods.cfg /home/steam/css/cstrike/cfg/sourcemod/mods.cfg
+#COPY cfg/mapcycle.txt /home/steam/css/cstrike/mapcycle.txt
+#COPY cfg/motd.txt /home/steam/css/cstrike/motd.txt
 
 CMD ./entrypoint.sh
